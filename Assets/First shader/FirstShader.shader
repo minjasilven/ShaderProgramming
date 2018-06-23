@@ -5,6 +5,7 @@
 	// C: Using structures
 	// D: Tweaking colors
 	// E: Texturing
+	// F: Tiling and offset
 
 	// Shown in inspector
 	Properties
@@ -41,6 +42,13 @@
 
 			// E
 			sampler2D _MainTex;
+
+			// F
+			// "Scale and Transition", old name for tiling and offset
+			// _ST is used if offset and tiling are used
+			// To use tiling, simply multiply it with UV coordinates
+			// To use offset, add it after UV scaling
+			float4 _MainTex_ST;
 
 			// C
 			// We can define data structures, which are simply a collection of variables
@@ -95,7 +103,13 @@
 			{
 				Interpolators i;
 				i.position = UnityObjectToClipPos(v.position);
-				i.uv = v.uv;
+				// E
+					//i.uv = v.uv;
+					//return i;
+
+				// F
+				i.uv = v.uv * _MainTex_ST.xy + _MainTex_ST.zw;
+				// UnityCG.cginc contains a macro for this --> i.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				return i;
 
 			// A
