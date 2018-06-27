@@ -2,8 +2,7 @@
 {
 	Properties
 	{
-		_Color("Color", Color) = (1, 1, 1, 1)
-		_EdgeColor("Edge Color", Color) = (1, 1, 1, 1)
+		_MainTex("Water texture", 2D) = "white" {}
 		_DepthFactor("Depth Factor", float) = 1.0
 		_RampTexture("Ramp texture", 2D) = "white" {}
 
@@ -27,8 +26,9 @@
 			// Unity built-in - NOT required in Properties
 			sampler2D _CameraDepthTexture;
 
-			float4 _Color;
-			float4 _EdgeColor;
+			sampler2D _MainTex;
+			float4 _MainTex_ST;
+
 			float _DepthFactor;
 			sampler2D _RampTexture;
 
@@ -53,8 +53,8 @@
 			{
 				vertexOutput output;
 
-				// convert obj-space position to camera clip space
 				output.pos = UnityObjectToClipPos(input.vertex);
+				output.uv = TRANSFORM_TEX(input.uv, _MainTex);
 
 				float noiseSample = tex2Dlod(_NoiseTex, float4(input.uv.xy, 0, 0));
 				output.pos.y += sin(_Time * _WaveSpeed * noiseSample) * _WaveAmp;
@@ -66,7 +66,7 @@
 				return output;
 			}
 
-			float4 frag(vertexOutput input) : COLOR
+			float4 frag(vertexOutput input) : SV_TARGET
 			{
 				// sample camera depth texture
 				float4 depthSample = SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, input.screenPos);
@@ -78,9 +78,7 @@
   				float foamLine = 1 - saturate(_DepthFactor * (depth - input.screenPos.w));
   				// sample the ramp texture
   				float4 foamRamp = float4(tex2D(_RampTexture, float2(foamLine, 0.5)).rgb, 1.0);
-  
-  				float4 col = _Color * foamRamp;
-				return col;
+				return tex2D(_MainTex, input.uv) * foamRamp;
 			}
 
 		 ENDCG
