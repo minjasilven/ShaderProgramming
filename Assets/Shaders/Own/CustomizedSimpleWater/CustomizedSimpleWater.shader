@@ -6,6 +6,8 @@
 		_DepthFactor("Depth Factor", float) = 1.0
 		_RampTexture("Ramp texture", 2D) = "white" {}
 
+		_Color("Color", color) = (1,1,1,1)
+
 		_WaveSpeed("Wave speed", float) = 1.0
 		_WaveAmp("Wave amp", float) = 1.0
 		_NoiseTex("Noise texture", 2D) = "white" {}
@@ -28,6 +30,8 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
+
+			float4 _Color;
 
 			float _DepthFactor;
 			sampler2D _RampTexture;
@@ -66,7 +70,7 @@
 				return output;
 			}
 
-			float4 frag(vertexOutput input) : SV_TARGET
+			float4 frag(vertexOutput input) : COLOR
 			{
 				// sample camera depth texture
 				float4 depthSample = SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, input.screenPos);

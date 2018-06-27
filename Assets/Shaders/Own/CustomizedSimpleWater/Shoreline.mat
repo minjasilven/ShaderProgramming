@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CustomizedSimpleWater
-  m_Shader: {fileID: 4800000, guid: 90b03f70898744c539c5bb087192d610, type: 3}
+  m_Name: Shoreline
+  m_Shader: {fileID: 4800000, guid: c98fec2931c4d614e9b84c949707b862, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -39,15 +39,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9be0d5abfcc224792bba802e51f043dc, type: 3}
-        m_Scale: {x: 5, y: 5}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: d10091a432d014900963ea4ea3c16f40, type: 3}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -58,19 +54,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _RampTexture:
-        m_Texture: {fileID: 2800000, guid: c550396f296cb4923beccb55096b529e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _DepthFactor: 1.16
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _FadeAmount: 0.08
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HeightAmount: 0.55
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -79,10 +72,9 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaveAmp: 0.1
-    - _WaveSpeed: 50
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.6545744, b: 1, a: 1}
+    - _Color: {r: 0, g: 0.6384635, b: 1, a: 1}
     - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
