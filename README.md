@@ -5,7 +5,7 @@ A repository containing either effects from tutorials found on internet or effec
 ### Own
 - Alpha noise shader
 - Change color over time
-- Simple water shader (customized from a tutorial)
+- Water shoreline shader (customised from simple water shader tutorial)
 - Fluid shader
 - Splat map with waves
 
