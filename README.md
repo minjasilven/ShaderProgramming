@@ -18,7 +18,14 @@ A repository containing either effects from tutorials found on internet or effec
 - Light shader
 
 ## ShaderGraph
-- Rainbow shader
+- Rainbow shader (WIP)
 
 ## Particle effects
-- Grass trail effect
+- Grass trail effect (WIP)
+
+## Links to tutorial blogs
+Linden Reid's blog
+https://lindenreid.wordpress.com/all-tutorials/
+
+CatLikeCoding blog
+https://catlikecoding.com/unity/tutorials/
